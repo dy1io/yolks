@@ -16,6 +16,7 @@ GAME_ID=221100                                  # SteamCMD ID for the DayZ SA GA
 MODLISTS_DIR="./modlists"
 MODLIST="${MODLISTS_DIR}/${MOD_FILE}.html"
 LAUNCHER_TAG="Created by DayZ Launcher"
+RATE_LIMITED=0
 
 # Color Codes
 CYAN='\033[0;36m'
@@ -212,7 +213,7 @@ else
 fi
  # If the mod list file exists and is valid, parse and add mods to the client-side mods list
 
-if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep \'${LAUNCHER_TAG})\'" ]]; then
+if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep \"${LAUNCHER_TAG})\"" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
     echo -e "\n${YELLOW}[STARTUP_WARN]: Modlist file \"${CYAN}${MODLIST}${YELLOW}\" could not be found, or is invalid!${NC}"
