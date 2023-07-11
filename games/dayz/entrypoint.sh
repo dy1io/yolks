@@ -381,7 +381,7 @@ modifiedStartup=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
 # Start the Server
 echo -e "\n${GREEN}[STARTUP]:${NC} Starting server with the following startup command:"
 # Debugging: Make sure this is ok!
-mkdir ./ServerLogs
+mkdir -p ./ServerLogs
 ServerLogsLocation=./ServerLogs/ServerLog_$(date '+%Y-%m-%d_%H:%M:%S').log
 echo -e "\n${GREEN}[LOGGING]:${NC} Server Logs available at: "
 echo -e "${CYAN}${modifiedStartup}${NC}\n"
