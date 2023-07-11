@@ -97,7 +97,7 @@ function RunSteamCMD { #[Input: int server=0 mod=1 optional_mod=2; int id]
                 echo -e "\t${YELLOW}(Please contact your administrator/host if this issue persists)${NC}\n"
                 exit 1
             elif [[ -n $(grep -i "Rate Limit Exceeded" "${STEAMCMD_LOG}") ]]; then # Hit Rate Limit - Need Cooldown
-                echo -e "\n${RED}[RATE LIMIT]: Rate Limit Exceeded"
+                echo -e "\n${RED}[RATE LIMIT]:${NC} Rate Limit Exceeded"
                 echo -e "\t${YELLOW}Sleeping for 30 seconds...${NC}"
                 sleep 30
                 exit 1
@@ -216,7 +216,7 @@ fi
 # DEBUGGING
 echo -e "\n${PURPLE}[DEBUGGING]: Launcher Tag: ${LAUNCHER_TAG}"
 
-if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep \'${LAUNCHER_TAG}\')" ]]; then
+if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep '\'${LAUNCHER_TAG}'\')" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
     echo -e "\n${YELLOW}[STARTUP_WARN]: Modlist file \"${CYAN}${MODLIST}${YELLOW}\" could not be found, or is invalid!${NC}"
