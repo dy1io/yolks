@@ -15,7 +15,7 @@ STEAMCMD_LOG="${STEAMCMD_DIR}/steamcmd.log"     # Log file for SteamCMD
 GAME_ID=221100                                  # SteamCMD ID for the DayZ SA GAME (not server). Only used for Workshop mod downloads.
 MODLISTS_DIR="./modlists"
 MODLIST="${MODLISTS_DIR}/${MOD_FILE}.html"
-LAUNCHER_TAG="'Created by DayZ Launcher'"
+LAUNCHER_TAG="Created by DayZ Launcher"
 RATE_LIMITED=0
 
 # Color Codes
@@ -216,7 +216,7 @@ fi
 # DEBUGGING
 echo -e "\n${PURPLE}[DEBUGGING]: Launcher Tag: ${LAUNCHER_TAG}"
 
-if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep ${LAUNCHER_TAG})" ]]; then
+if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep '${LAUNCHER_TAG}')" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
     echo -e "\n${YELLOW}[STARTUP_WARN]: Modlist file \"${CYAN}${MODLIST}${YELLOW}\" could not be found, or is invalid!${NC}"
