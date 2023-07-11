@@ -38,4 +38,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/bad-wolves/games:${{ matrix.game }}
+            ghcr.io/dy1io/games:${{ matrix.game }}
