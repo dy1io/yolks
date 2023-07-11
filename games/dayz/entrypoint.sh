@@ -207,12 +207,12 @@ else
 fi
  # If the mod list file exists and is valid, parse and add mods to the client-side mods list
 
-if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep '${LAUNCHER_TAG}')" ]]; then
+if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep \"${LAUNCHER_TAG}\")" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
     echo -e "\n${YELLOW}[STARTUP_WARN]: Modlist file \"${CYAN}${MODLIST}${YELLOW}\" could not be found, or is invalid!${NC}"
     echo -e "\tEnsure your uploaded modlist's file name matches your Startup Parameter."
-    echo -e "\tOnly files exported from an Arma 3 Launcher are permitted."
+    echo -e "\tOnly files exported from a Bohemia 3 Launcher are permitted."
     if [[ -n "${CLIENT_MODS}" ]]; then
         echo -e "\t${CYAN}Reverting to the manual mod list...${NC}"
     fi
