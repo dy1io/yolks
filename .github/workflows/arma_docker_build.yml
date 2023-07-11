@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - games/**
+      - games/arma3/**
 jobs:
   push:
     name: "games:${{ matrix.game }}"
@@ -17,7 +17,7 @@ jobs:
       matrix:
         game:
           - arma3
-          - dayz
+        # - dayz
         # - ark
 
 
