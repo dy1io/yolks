@@ -34,6 +34,10 @@ RUN         dpkg --add-architecture i386 \
 ## Configure locale
 RUN         update-locale lang=en_US.UTF-8 \
             && dpkg-reconfigure --frontend noninteractive locales
+## Added additional locale stuff [DEBUGGING]
+RUN         export LC_ALL=en_US.UTF-8
+RUN         export LANG=en_US.UTF-8
+RUN         locale-gen en_US.UTF-8	    
 
 ## Prepare NSS Wrapper for the entrypoint as a workaround for Arma 3 requiring a valid UID
 ENV         NSS_WRAPPER_PASSWD=/tmp/passwd NSS_WRAPPER_GROUP=/tmp/group
