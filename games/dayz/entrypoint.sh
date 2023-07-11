@@ -129,7 +129,8 @@ function RunSteamCMD { #[Input: int server=0 mod=1 optional_mod=2; int id]
                 echo -e "\n${PURPLE}[DEBUGGING]:${NC} Validate modslowercase"
                 # Move any .bikey's to the keys directory
                 echo -e "\tCopying any mod ${CYAN}.bikey${NC} files to the ${CYAN}~/keys/${NC} folder..."
-                if [[ $1 == 1 ]]; then
+                #if [[ $1 == 1 ]]; then
+                if [[ 1 == 1 ]]; then
                     # Debugging
                     find ./@$2 -name "*.bikey" -type f -exec cp {} ./keys \;            
                 else
