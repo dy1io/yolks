@@ -217,7 +217,7 @@ fi
 echo -e "\n${PURPLE}[DEBUGGING]: Launcher Tag: ${LAUNCHER_TAG}"
 
 # DayZ Launcher
-if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep 'Created By DayZ Launcher')" ]]; then
+if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep "${LAUNCHER_TAG}")" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
     echo -e "\n${YELLOW}[STARTUP_WARN]: Modlist file \"${CYAN}${MODLIST}${YELLOW}\" could not be found, or is invalid!${NC}"
