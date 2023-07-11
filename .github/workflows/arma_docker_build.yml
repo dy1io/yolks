@@ -1,4 +1,4 @@
-name: build games
+name: buid arma3 docker
 on:
   workflow_dispatch:
   schedule:
