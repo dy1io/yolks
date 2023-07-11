@@ -95,6 +95,11 @@ function RunSteamCMD { #[Input: int server=0 mod=1 optional_mod=2; int id]
                 echo -e "\t${YELLOW}This is normally caused by directory permissions issues,\n\tbut could be a more serious hardware issue.${NC}"
                 echo -e "\t${YELLOW}(Please contact your administrator/host if this issue persists)${NC}\n"
                 exit 1
+            elif [[ -n $(grep -i "Rate Limit Exceeded" "${STEAMCMD_LOG}") ]]; then # Hit Rate Limit - Need Cooldown
+                echo -e "\n${RED}[RATE LIMIT]: Rate Limit Exceeded"
+                echo -e "\t${YELLOW}Sleeping for 30 seconds...${NC}"
+                sleep 30
+                exit 1
             else # Unknown caught error
                 echo -e "\n${RED}[UPDATE]: ${YELLOW}An unknown error has occurred with SteamCMD. ${CYAN}Skipping download...${NC}"
                 echo -e "\t(Please contact your administrator/host if this issue persists)"
