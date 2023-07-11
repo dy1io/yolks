@@ -132,7 +132,8 @@ function RunSteamCMD { #[Input: int server=0 mod=1 optional_mod=2; int id]
                 #if [[ $1 == 1 ]]; then
                 if [[ 1 == 1 ]]; then
                     # Debugging
-                    find ./@$2 -name "*.bikey" -type f -exec cp {} ./keys \;            
+                    #find ./@$2 -name "*.bikey" -type f -exec cp {} ./keys \;
+                    find ./Steam/steamapps/workshop/content/${GAME_ID}/$2 -name "*.bikey" -type f -exec cp {} ./keys \;            
                 else
                     # Give optional mod keys a custom name which can be checked later for deleting unconfigured mods
                     for file in $(find ./@$2 -name "*.bikey" -type f); do
