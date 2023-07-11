@@ -213,6 +213,9 @@ else
 fi
  # If the mod list file exists and is valid, parse and add mods to the client-side mods list
 
+# DEBUGGING
+echo -e "\n${PURPLE}[DEBUGGING]: Launcher Tag: ${LAUNCHER_TAG}"
+
 if [[ -f ${MODLIST} ]] && [[ -n "$(cat ${MODLIST} | grep \'${LAUNCHER_TAG}\')" ]]; then
     CLIENT_MODS+=$(cat ${MODLIST} | grep 'id=' | cut -d'=' -f3 | cut -d'"' -f1 | xargs printf '@%s;')
 elif [[ -n "${MOD_FILE}" ]]; then # If MOD_FILE is not null, warn user file is missing or invalid
